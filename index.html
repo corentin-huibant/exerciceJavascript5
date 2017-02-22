@@ -6,22 +6,27 @@
   </head>
   <body>
     <form>
-          <label for="premier_nombre">Premier nombre : </label><input onClick="warning();" type="text" id="premier_nombre" name="premier_nombre"/><br/>
-          <label for="deuxieme_nombre">Deuxième nombre : </label><input onClick="warning();" type="text" id="deuxieme_nombre" name="deuxieme_nombre"/><br/>
-          <button  id="valider" name ="valider" onClick="number();">Valider</button>
+          <label for="premier_nombre">Premier nombre : </label><input onClick="warning()" type="text" id="premier_nombre" name="premier_nombre"/><br/>
+          <label for="deuxieme_nombre">Deuxième nombre : </label><input onClick="warning()" type="text" id="deuxieme_nombre" name="deuxieme_nombre"/><br/>
+          <button  id="valider" name ="valider" onClick="number()">Valider</button>
    </form>
     <script>
       // Fonction stipulant que le client doit entrer un nombre décimal
-      /*function warning() {
+      function warning() {
         alert('Entrez un nombre décimal');
       }
-       Fonction qui permet de multiplier les deux nombres du client dont un, le premier,
+       /* Fonction qui permet de multiplier les deux nombres du client dont un, le premier,
       transformé en nombre entier */
       function number() {
         var number1 = document.getElementById('premier_nombre').value;
         var number2 = document.getElementById('deuxieme_nombre').value;
+          if (isNaN(number1) || isNaN(number2)) {
+            alert('Vous n\'êtes... Rien. Absolument rien !');
+          } // condition qui empeche le client d'inscrire une valeur autre qu'un nombre.
+          else {
         result = parseInt(number1) * number2;
         alert(result);
+        }
       }
       /* Demander à l’utilisateur deux nombres à virgule. Ne garder que la partie entière du premier .
 Les multiplier et afficher le résultat dans une boîte de dialogue. */
